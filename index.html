@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador Tributário IBS/CBS - Dalvan</title>
+    <meta name="description"
+        content="Descubra a alíquota correta de cada produto. Kit gratuito de classificação tributária.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            margin-top: 40px;
+        }
+
+        .alert {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .alert strong {
+            color: #dc2626;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #0f172a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .problem-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .problem-box p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .benefits {
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .benefits h3 {
+            color: #166534;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .benefit-icon {
+            width: 22px;
+            height: 22px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon::after {
+            content: "✓";
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .privacy {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .author {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 25px;
+                margin-top: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="alert">
+                <strong>⚠️ A Reforma começa em 2026</strong>
+            </div>
+
+            <h1>Você Sabe <span class="highlight">Classificar</span> Seus Produtos no Novo IBS/CBS?</h1>
+            <p class="subtitle">Kit gratuito para descobrir a alíquota correta de cada produto</p>
+
+            <div class="problem-box">
+                <p>❌ São <strong>145 classificações</strong> diferentes</p>
+                <p>❌ O governo NÃO ensina a classificar</p>
+                <p>❌ Errar = pagar imposto a mais ou multa</p>
+            </div>
+
+            <div class="benefits">
+                <h3>✅ O que você recebe (grátis):</h3>
+                <div class="benefit-item">
+                    <div class="benefit-icon"></div>
+                    <span>E-book "Classificação em 5 Minutos"</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"></div>
+                    <span>Calculadora Excel com 145 códigos oficiais</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"></div>
+                    <span>Checklist de adequação empresarial</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"></div>
+                    <span>Atualizações por email</span>
+                </div>
+            </div>
+
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Seu nome</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Seu melhor e-mail</label>
+                    <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+                </div>
+
+                <button type="submit" class="btn">QUERO APRENDER A CLASSIFICAR →</button>
+            </form>
+
+            <p class="privacy">🔒 Seus dados estão seguros. Não enviamos spam.</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">145</div>
+                    <div class="stat-label">Classificações</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10.520</div>
+                    <div class="stat-label">Códigos NCM</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">a 25%</div>
+                </div>
+            </div>
+
+            <div class="author">
+                <strong>Dalvan Campos</strong><br>
+                <small>Analista de Sistemas Contábeis | Otimização de Processos</small>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
