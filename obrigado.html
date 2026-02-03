@@ -54,6 +54,23 @@
             margin: 20px 0;
         }
 
+        .btn-download {
+            display: inline-block;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
         .btn {
             display: inline-block;
             padding: 14px 30px;
@@ -70,6 +87,13 @@
             box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
         }
 
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
         .author {
             margin-top: 30px;
             padding-top: 20px;
@@ -84,19 +108,26 @@
     <div class="card">
         <div class="icon">🎉</div>
         <h1>Parabéns!</h1>
-        <p>Seu Kit Classificador foi enviado para o email que você informou.</p>
+        <p>Seu Kit Classificador está pronto para download!</p>
 
         <div class="highlight">
-            <strong>📧 Verifique sua caixa de entrada</strong><br>
-            <small>(e também a pasta de spam/promoções)</small>
+            <strong>📥 Baixe agora seu E-book</strong><br>
+            <small>Clique no botão abaixo</small>
         </div>
 
-        <p>Nos próximos dias você receberá mais conteúdos exclusivos sobre a Reforma Tributária.</p>
+        <div class="buttons">
+            <a href="ebook-classificacao-tributaria.pdf" download class="btn-download">
+                📘 Baixar E-book PDF
+            </a>
 
-        <a href="https://wa.me/5586999513172?text=Oi!%20Baixei%20o%20Kit%20Classificador%20e%20quero%20saber%20mais!"
-            class="btn">
-            💬 Falar no WhatsApp
-        </a>
+            <a href="https://wa.me/5586999513172?text=Oi!%20Baixei%20o%20Kit%20Classificador%20e%20quero%20saber%20mais!"
+                class="btn">
+                💬 Falar no WhatsApp
+            </a>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 14px;">Nos próximos dias você receberá mais conteúdos exclusivos sobre a
+            Reforma Tributária.</p>
 
         <div class="author">
             <strong>Dalvan Campos</strong><br>
